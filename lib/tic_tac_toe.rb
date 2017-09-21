@@ -124,7 +124,7 @@ end
 def over?(board)
   draw = draw?(board)
   won = won?(board)
-  if draw == true || (won.is_a?(Array) == true)
+  if draw == true || winner(board) == "X" || winner(board) == "O"
     true
   else
     false
@@ -147,16 +147,19 @@ end
 def play(board)
   win_statement = "Congratulations "
   display_board(board)
-  while over?(board) == false
+  while over? == false
      turn(board)
   end
-  if winner(board) == "X"
-    puts win_statement + "X!"
-  elsif winner(board) == "O"
-    puts win_statement + "O!"
+  if won?.is_a?(Array) == true
+    if winner(board) == "X"
+      puts win_statement + "X!"
+    elsif winner(board) == "O"
+      puts win_statement + "O!"
+    end
   else
     puts "Cat's Game!"
   end
 end
+
 
 #play([" "," "," "," "," "," "," "," "," "])
