@@ -147,7 +147,7 @@ end
 def play(board)
   win_statement = "Congratulations "
   display_board(board)
-  while over? == false
+  while over?(board) == false
      turn(board)
   end
   if won?.is_a?(Array) == true
