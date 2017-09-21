@@ -146,7 +146,7 @@ def play(board)
   while over?(board) == false
      turn(board)
   end
-  if won?.is_a?(Array) == true
+  if won?(board).is_a?(Array) == true
     if winner(board) == "X"
       puts win_statement + "X!"
     elsif winner(board) == "O"
