@@ -76,27 +76,23 @@ def current_player(board)
 end
 
 def won?(board)
-  if board == [" "," "," "," "," "," "," "," "," "]
-    return false
-  else
-    winner = WIN_COMBINATIONS.each do |combinations|
-      win_index_1 = combinations[0]
-      win_index_2 = combinations[1]
-      win_index_3 = combinations[2]
+  winner = WIN_COMBINATIONS.each do |combinations|
+    win_index_1 = combinations[0]
+    win_index_2 = combinations[1]
+    win_index_3 = combinations[2]
 
-      position_1 = board[win_index_1]
-      position_2 = board[win_index_2]
-      position_3 = board[win_index_3]
+    position_1 = board[win_index_1]
+    position_2 = board[win_index_2]
+    position_3 = board[win_index_3]
 
-      if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
-        return combinations
-      else
-        false
-      end
-    end
-    if winner == false
+    if (position_1 == "X" && position_2 == "X" && position_3 == "X") || (position_1 == "O" && position_2 == "O" && position_3 == "O")
+      return combinations
+    else
       false
     end
+  end
+  if winner == false
+    false
   end
 end
 
